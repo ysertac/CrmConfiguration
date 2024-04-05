@@ -13,7 +13,7 @@ eureka:
 spring:
   cloud:
     gateway:
-      routes:
+      mvc:
         routes[0]:
           id: customerservice
           predicates[0]: Path=/customerservice/api/v1/cities/**
