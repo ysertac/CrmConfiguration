@@ -23,7 +23,3 @@ spring:
           predicates[0]: Path=/euroka/web
           filters[0]: SetPath=/
           uri: http://localhost:8888
-        routes[2]:
-          id: customerservice
-          predicates[0]: Path=/customerservice/api/v1/individualcustomers/**
-          uri: lb://customerservice
