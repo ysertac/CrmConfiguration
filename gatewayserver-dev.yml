@@ -13,15 +13,21 @@ eureka:
 spring:
   cloud:
     gateway:
-      mvc:
-        routes[0]:
-          id: customerservice
-          predicates: Path=/customerservice/api/v1/cities/**
-          predicates: Path=/customerservice/api/v1/individualcustomers/**
-          uri: lb://customerservice
-        routes[1]:
-          id: discoveryserver
-          predicates[0]: Path=/euroka/web
-          filters[0]: SetPath=/
-          uri: http://localhost:8888
-        
+      routes:
+        id: customerservice-route
+        uri: lb://customerservice
+        predicates: Path=/customerservice/**
+
+        # routes[0]:
+        #   id: customerservice
+        #   predicates[0]: Path=/customerservice/api/v1/cities/**
+        #   uri: lb://customerservice
+        # routes[1]:
+        #   id: discoveryserver
+        #   predicates[0]: Path=/euroka/web
+        #   filters[0]: SetPath=/
+        #   uri: http://localhost:8888
+        # routes[2]:
+        #   id: customerservice
+        #   predicates[0]: Path=/customerservice/api/v1/individualcustomers/**
+        #   uri: lb://customerservice
