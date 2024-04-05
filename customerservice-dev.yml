@@ -15,7 +15,7 @@ spring:
   application:
     name: customerservice
 server:
-  port: 8081
+  port: 0
 eureka:
   client:
     fetchRegistry: true
