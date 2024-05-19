@@ -10,7 +10,7 @@ eureka:
     prefer-ip-address: true
 spring:
   application:
-    name: api-gateway
+    name: gatewayserver
   cloud:
     gateway:
       discovery:
