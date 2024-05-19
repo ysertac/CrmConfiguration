@@ -1,19 +1,16 @@
 spring:
+  application:
+    name: customerservice
   datasource:
-    url: jdbc:h2:file:/data/crmcustomers;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+    url: jdbc:postgresql://localhost:5432/customerservice
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
     show-sql: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-  application:
-    name: customerservice
 server:
   port: 8080
 eureka:
