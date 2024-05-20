@@ -1,5 +1,3 @@
-server:
-  port: 8001
 eureka:
   client:
     fetch-registry: true
@@ -8,6 +6,8 @@ eureka:
       defaultZone: http://localhost:8888/eureka/
   instance:
     prefer-ip-address: true
+server:
+  port: 8001
 spring:
   application:
     name: gatewayserver
@@ -20,7 +20,7 @@ spring:
         corsConfigurations:
           "[/**]":
             allowedOrigins:
-              - "http://localhost:4200"
+            - "http://localhost:4200"
             allowCredentials: true
             allowedMethods:
               - GET
