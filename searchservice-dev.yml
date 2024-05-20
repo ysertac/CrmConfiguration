@@ -1,12 +1,3 @@
-eureka:
-  client:
-    fetchRegistry: true
-    registerWithEureka: true
-    serviceUrl:
-      defaultZone: http://localhost:8888/eureka
-  instance:
-    instance-id: ${spring.application.name}:${instanceId:${random.value}}
-    preferIpAddress: true
 server:
   port: 8082
 spring:
@@ -15,6 +6,7 @@ spring:
   data:
     mongodb:
       database: searchservice
+      port: 27017
       uri: mongodb://localhost:27017
   kafka:
     consumer:
@@ -27,3 +19,12 @@ spring:
             trusted:
               packages: "*"
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka
+  instance:
+    instance-id: ${spring.application.name}:${instanceId:${random.value}}
+    preferIpAddress: true

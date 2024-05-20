@@ -13,15 +13,22 @@ spring:
     name: gatewayserver
   cloud:
     gateway:
-      # routes:
-      #   - filters:
-      #       - RemoveRequestHeader=Cookie
-      #       - StripPrefix=1
-      #     id: searchservice
-      #     predicates:
-      #       - Path=/searchservice/api/v1/**
-      #       - Method=GET,POST,PUT,DELETE
-      #     uri: lb://searchservice
+      default-filters:
+        - RemoveRequestHeader=Origin
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+            - "http://localhost:4200"
+            allowCredentials: true
+            allowedMethods:
+              - GET
+              - POST
+              - DELETE
+              - GET
+              - OPTIONS
+            allowedHeaders: "*"
       discovery:
         locator:
           enabled: true
