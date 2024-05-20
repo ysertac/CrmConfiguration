@@ -13,15 +13,15 @@ spring:
     name: gatewayserver
   cloud:
     gateway:
-      routes:
-        - filters:
-            - RemoveRequestHeader=Cookie
-            - StripPrefix=1
-          id: searchservice
-          predicates:
-            - Path=/searchservice/api/v1/**
-            - Method=GET,POST,PUT,DELETE
-          uri: lb://searchservice
+      # routes:
+      #   - filters:
+      #       - RemoveRequestHeader=Cookie
+      #       - StripPrefix=1
+      #     id: searchservice
+      #     predicates:
+      #       - Path=/searchservice/api/v1/**
+      #       - Method=GET,POST,PUT,DELETE
+      #     uri: lb://searchservice
       discovery:
         locator:
           enabled: true
