@@ -9,8 +9,6 @@ eureka:
   instance:
     prefer-ip-address: true
 spring:
-  application:
-    name: gatewayserver
   cloud:
     gateway:
       discovery:
