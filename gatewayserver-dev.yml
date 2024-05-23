@@ -5,6 +5,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:8888/eureka/
   instance:
+    instance-id: ${spring.application.name}:${instanceId:${random.value}}
     prefer-ip-address: true
 server:
   port: 8001
